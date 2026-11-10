@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h2>Connect<span>.</span></h2>
+        <nav id="navbar" style="display:none;">
+            <button onclick="showPage('feed')">Home</button>
+            <button onclick="showPage('profile')">Profile</button>
+            <button onclick="showPage('people')">People</button>
+            <button onclick="logout()">Logout</button>
+        </nav>
+    </header>
+
+    <!-- Login and Registration -->
+    <section id="authSection">
+        <div class="auth-box">
+            <h1>Welcome to Connect</h1>
+            <p>Connect with friends and share your moments.</p>
+
+            <div class="auth-tabs">
+                <button onclick="setMode('login')">Login</button>
+                <button onclick="setMode('register')">Register</button>
+            </div>
+
+            <form id="authForm">
+                <input type="text" id="username"
+                       placeholder="Enter username" required>
+
+                <input type="password" id="password"
+                       placeholder="Enter password" required>
+
+                <button type="submit" id="authButton">Login</button>
+            </form>
+
+            <p id="authMessage"></p>
+        </div>
+    </section>
+
+    <!-- Main Application -->
+    <main id="appSection" style="display:none;">
+
+        <!-- Feed -->
+        <section id="feedPage">
+            <h1>Home Feed</h1>
+
+            <div class="create-post">
+                <h3>Create a Post</h3>
+                <textarea id="postContent"
+                    placeholder="What's happening?"></textarea>
+                <button onclick="createPost()">Share Post</button>
+            </div>
+
+            <div id="postsContainer"></div>
+        </section>
+
+        <!-- Profile -->
+        <section id="profilePage" style="display:none;">
+            <div class="profile-box">
+                <h1>My Profile</h1>
+                <h2 id="profileUsername"></h2>
+
+                <p id="profileStats"></p>
+
+                <textarea id="bio"
+                    placeholder="Write your bio"></textarea>
+
+                <button onclick="updateProfile()">Save Profile</button>
+            </div>
+
+            <h2>My Posts</h2>
+            <div id="myPosts"></div>
+        </section>
+
+        <!-- People -->
+        <section id="peoplePage" style="display:none;">
+            <h1>Discover People</h1>
+            <div id="peopleContainer"></div>
+        </section>
+
+        <p id="message"></p>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
